@@ -1,0 +1,15 @@
+
+    
+.modal-dialog {
+        max-width:800px;
+        margin: 1.75rem auto;
+} 
+  
+  h3{
+        text-align: left;
+  }
+  .mat-radio-button ~ .mat-radio-button {
+      margin-left: 16px;
+    }
+    .mat-radio-button.checked[type="radio"]
+    {visibility:hidden;}

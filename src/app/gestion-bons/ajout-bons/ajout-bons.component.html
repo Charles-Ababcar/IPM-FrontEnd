@@ -1,0 +1,616 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                <h4 class="card-title">Bienvenue dans la page d'ajout des bons</h4>
+                
+                </div>
+                <div class="card-body">
+                <div id="accordion" role="tablist">
+                    <div class="card-collapse">
+                        <button mat-raised-button style="float: right;" class="btn btn-raised btn-round btn-info" data-toggle="modal" data-target="#bon_pharmacie">
+                            Ajout_bon_pharmacie
+                        </button>
+                    <div class="card-header" role="tab" id="headingOne">
+                        <h5 class="mb-0">  
+                        <a data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+                            Bon_Pharmaceutique    
+                        </a>
+                        </h5>
+                    </div>
+                    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" style="">
+                        <div class="card-body">
+                        
+                        </div>
+                    </div>
+                    </div>
+                    <div class="card-collapse">
+                        <button mat-raised-button style="float: right;" class="btn btn-raised btn-round btn-info" data-toggle="modal" data-target="#bon_consultation">
+                            Ajout_bon_consult
+                        </button>
+                    <div class="card-header" role="tab" id="headingTwo">
+                        <h5 class="mb-0">
+                        <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Bon_Consultation
+                        </a>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                        
+                    </div>
+                    </div>
+                    <div class="card-collapse">
+                      <button mat-raised-button style="float: right;" class="btn btn-raised btn-round btn-info" data-toggle="modal" data-target="#bon_de_lunetterie">
+                          Ajout_bon_lunette
+                      </button>
+                  <div class="card-header" role="tab" id="headingTwo">
+                      <h5 class="mb-0">
+                      <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Bon_De_Lunetterie 
+                      </a>
+                      </h5>
+                  </div>
+                  <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                      
+                  </div>
+                  </div>
+                    <div class="card-collapse">
+                        <button mat-raised-button style="float: right;" class="btn btn-raised btn-round btn-info" data-toggle="modal" data-target="#bon_lettre_de_garantie">
+                            Ajout_bon_lettre
+                        </button>
+                    <div class="card-header" role="tab" id="headingThree">
+                        <h5 class="mb-0">
+                        <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Bon_Lettre_de_Garantie
+                        </a>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+                        
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- bon_pharmacie -->
+
+<div class="modal fade" id="bon_pharmacie"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div id="content">  <div class="modal-dialog modal-notice " id="contente">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalLabel">Ajout des Bons Pharmaceutique</h5>
+          <button mat-button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <i class="material-icons">close</i>
+          </button>
+        </div>
+        <form class="form-horizontal">
+            <input type="hidden" class="form-control" >
+            <div class="form-group row card-header ">
+              <div class="card-header card-header-icon card-header-info"  class="btn-btn primary">
+         
+          
+            <div class="col-md-6 form-group">
+            <div class="form-group">
+              <label class="bmd-label-floating">Prénom Nom:</label>
+              {{currentemploye.prenom}} {{currentemploye.nom}}
+            </div>
+          </div>
+              <div class="col-md-4 form-group">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Matricule:</label>  
+                  {{currentemploye.matricule}}        
+               </div>
+              </div>
+              <div class="col-md-4 form-group">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Numero Carnet:</label>  
+                  {{currentemploye.idemp}}        
+               </div>
+              </div>
+              <div class="col-md-4 form-group">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Services:</label>  
+                  {{currentemploye.ipm_service?.type_service}}        
+               </div>
+              </div>
+              </div>
+            
+              <div class="col-md-4 form-group">
+                <div class="form-group">
+                <label>Nombre_D'Article</label>
+              <input type="text" class="form-control" id="nombre_article" [(ngModel)]="bon.nombre_article" name="nombre_article">
+            </div>
+            <div class="col-md-6 form-group">
+              <mat-form-field>
+                <mat-select placeholder="Prestataires" name="prestataire">
+                  <mat-option *ngFor="let pres of prestataire" [value]="pres.code_categorie_pretataire">
+                    {{ pres.nom_prestataire }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>   
+            </div>
+            <!--  <div class="example-container">
+                <form [formGroup]="options">
+              <div class="col-md-6 form-group">
+                    <label>Malade</label>
+               
+                <mat-radio-group [formControl]="floatLabelControl">
+                  <mat-radio-button  value="auto">Conjoint</mat-radio-button>
+                  <mat-radio-button (change)="radioChangeHandler($event)" value="always">Enfant</mat-radio-button>
+                </mat-radio-group>
+             
+                
+              </div>
+              <div class="col-md-6 form-group">
+                <mat-form-field appearance="fill"
+                [hideRequiredMarker]="hideRequiredControl.value"
+                [floatLabel]="floatLabelControl.value">
+                    <mat-select placeholder="Choisir Conjoints"  [(ngModel)]="conjoint"> 
+                      <mat-option *ngFor="let conjoint of conjoints"  [value]="conjoint.nom_conjoint"  [value]="conjoint.prenom_conjoint">
+                       {{ conjoint.prenom_conjoint}}   {{ conjoint.nom_conjoint}}  
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field>
+          
+          </div>
+          </form> 
+          </div>  -->
+        
+              <div class="col-md-6 form-group">
+                  <label>Quantite</label>
+                <input type="text" class="form-control" id="quantite" [(ngModel)]="bon.quantite" name="quantite">
+              </div>
+              <div class="col-md-6 form-group">
+                <label>Designation</label>
+              <input type="text" class="form-control" id="designation" [(ngModel)]="bon.designation" name="designation">
+            </div>
+          </div>
+            <div class="row">
+              <div class="col-md-8 ml-auto mr-auto">
+                <div class="page-categories">
+                  <h4 class="title text-center">Choisir Conjoints ou Enfants</h4>
+                  <br />
+                  <ul class="nav nav-pills nav-pills-warning nav-pills-icons justify-content-center" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" data-toggle="tab" href="#link7" role="tablist">
+                        <i class="material-icons">person</i> Conjoints
+                      </a>
+                    </li>
+  
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#link8" role="tablist">
+                        <i class="material-icons">person</i> Enfants
+                      </a>
+                    </li>
+                   
+                  </ul>
+                  <div class="tab-content tab-space tab-subcategories">
+                    <div class="tab-pane" id="link7">
+                      <div class="card">
+                       
+                        <div class="card-body">
+                           
+          
+          
+                    <label>Malade</label>
+             
+                <mat-form-field appearance="fill"> 
+                    <mat-select placeholder="Choisir Conjoints"  [(ngModel)]="conjoint"> 
+                      <mat-option *ngFor="let conjoint of conjoints"  [value]="conjoint.nom_conjoint"  [value]="conjoint.prenom_conjoint">
+                       {{ conjoint.prenom_conjoint}}   {{ conjoint.nom_conjoint}}  
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field>
+        
+     
+       
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane active" id="link8">
+                      <div class="card">
+                        <div class="card-header">
+                          
+                         
+                        </div>
+                        <div class="card-body">
+                          Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas.
+                          <br>
+                          <br> Dramatically maintain clicks-and-mortar solutions without functional solutions.
+                        </div>
+                      </div>
+                    </div>
+                   
+                 
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+              <!-- <div class="card-body table-full-width">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="text-primary">
+                            <tr>
+                              <th>Code_Remb, 64800</th>
+                              <th >Code P Non Remb, 64801</th>
+                              <th >Quantite</th>
+                              <th >Designation</th>
+                              <th >P.Unitaire</th>
+                              <th >Total</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                              <tr *ngFor=" let bon of bons">
+                                  <td>{{bon.code_remb_64800}}</td>
+                                  <td >{{bon.code_p_non_Remb_64801}}</td>
+                                  <td >{{bon.quantite}}</td>
+                                  <td >{{bon.designation}}</td>
+                                  <td >{{bon.prix_unitaire}}</td>
+                                  <td>{{bon.total}}</td>
+                                  <td >{{employe.lieu_nais}}</td>
+                                  <td >{{employe.telephone}}</td>
+                                  <td >{{employe.date_recrutement}}</td>
+                                  <td >{{employe.matricule}}</td>
+                                  <td>{{employe.reference}}</td>
+                                  <td >{{employe.numero_carnet}}</td>
+                                  <td >{{employe.situation_familial}}</td>
+                                  <td >{{employe.solde}}</td>
+                                  <td >{{employe.cumul_charge}}</td>
+                                  <td >{{employe.niveau_salarial}}</td>
+                                  <td>
+                                    <a  class="btn btn-success" [routerLink]="['/gestion-employes/ModifierEmployes/'+employe.idemp]">
+                                        Modifier
+                                    </a>
+                                  </td>
+                                  <td>
+                                    <a  class="btn btn-danger" (click)="supprimerEmploye(employe)">
+                                        supprimer
+                                    </a>
+                                  </td>
+                                  
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                    </div>
+                    </div> -->
+              
+             <div>
+              <h4>{{message}} </h4>
+            </div>
+            </div>
+          </form>
+        
+        <div class="modal-footer justify-content-center">
+          <button mat-raised-button type="button" class="btn btn-info btn-round" (click)="BonNow();">Enregistrer Bon Pharmaceutique</button>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button mat-raised-button type="button" class="btn btn-info btn-round" data-dismiss="modal">Annuler</button>
+        </div>
+    </div>
+  </div>
+</div>
+  <!-- bon_consultation -->
+  <div class="modal fade" id="bon_consultation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-notice ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalLabel">feuille de maladie</h5>
+          <button mat-button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <i class="material-icons">close</i>
+          </button>
+        </div>
+        <form class="form-horizontal">
+            <input type="hidden" class="form-control" >
+            <div class="form-group row card-header">
+              
+              <div class="col-md-12 form-group">
+                <label>Numero_Carnet</label>
+              <input type="text" class="form-control" id="numero_carnet" [(ngModel)]="bon.numero_carnet" name="numero_carnet">
+            </div>
+              <div class="col-md-8 form-group">
+                  <label>Code de Fournisseur</label>
+                <input type="text" class="form-control" id="code_fournisseur" [(ngModel)]="bon.code_fournisseur" name="code_fournisseur">
+              </div>
+              <div class="col-md-4 form-group">
+                  <label>Numero Saisie Facture</label>
+                <input type="text" class="form-control" id="n_saisie_facture" [(ngModel)]="bon.n_saisie_facture" name="n_saisie_facture">
+              </div>
+              <div class="col-md-12 form-group">
+                  <label>Prénom de/des Malade(s)</label>
+                <input type="text" class="form-control" id="prenom_malade" [(ngModel)]="bon.prenom_malade" name="prenom_malade">
+              </div>
+              <div class="col-md-4 form-group">
+                  <label>Date de Demande</label>
+                <input type="date" class="form-control" id="date_demande" [(ngModel)]="bon.date_demande" name="date_demande">
+              </div>
+              <div class="col-md-4 form-group">
+                  <label>Date de Reception de Facture</label>
+                <input type="date" class="form-control" id="date_reception_facture" [(ngModel)]="bon.date_reception_facture" name="date_reception_facture">
+              </div>
+                
+              <div class="row">
+                <div class="col-md-8 ml-auto mr-auto">
+                  <div class="page-categories">
+                    <h4 class="title text-center">Choisir Conjoints ou Enfants</h4>
+                    <br />
+                    <ul class="nav nav-pills nav-pills-warning nav-pills-icons justify-content-center" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#link7" role="tablist">
+                          <i class="material-icons">person</i> Conjoints
+                        </a>
+                      </li>
+    
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#link8" role="tablist">
+                          <i class="material-icons">person</i> Enfants
+                        </a>
+                      </li>
+                     
+                    </ul>
+                    <div class="tab-content tab-space tab-subcategories">
+                      <div class="tab-pane" id="link7">
+                        <div class="card">
+                          <div class="card-header">
+                            <h4 class="card-title">Description about product</h4>
+                            <p class="card-category">
+                              More information here
+                            </p>
+                          </div>
+                          <div class="card-body">
+                            Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits.
+                            <br>
+                            <br> Dramatically visualize customer directed convergence without revolutionary ROI.
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane active" id="link8">
+                        <div class="card">
+                          <div class="card-header">
+                            <h4 class="card-title">Location of the product</h4>
+                            <p class="card-category">
+                              More information here
+                            </p>
+                          </div>
+                          <div class="card-body">
+                            Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas.
+                            <br>
+                            <br> Dramatically maintain clicks-and-mortar solutions without functional solutions.
+                          </div>
+                        </div>
+                      </div>
+                     
+                   
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body table-full-width">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="text-primary">
+                            <tr>
+                              <th>Date Prestation</th>
+                              <th >Code Prestation</th>
+                              <th >Nature Prestation</th>
+                              <th >Montant</th>
+                              <th >T.P.S</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                              <tr *ngFor=" let bon of bons">
+                                  <td>{{bon.code_remb_64800}}</td>
+                                  <td >{{bon.code_p_non_Remb_64801}}</td>
+                                  <td >{{bon.quantite}}</td>
+                                  <td >{{bon.designation}}</td>
+                                  <td >{{bon.prix_unitaire}}</td>
+                                  <td>{{bon.total}}</td>
+                                  <td >{{employe.lieu_nais}}</td>
+                                  <td >{{employe.telephone}}</td>
+                                  <td >{{employe.date_recrutement}}</td>
+                                  <td >{{employe.matricule}}</td>
+                                  <td>{{employe.reference}}</td>
+                                  <td >{{employe.numero_carnet}}</td>
+                                  <td >{{employe.situation_familial}}</td>
+                                  <td >{{employe.solde}}</td>
+                                  <td >{{employe.cumul_charge}}</td>
+                                  <td >{{employe.niveau_salarial}}</td>
+                                  <td>
+                                    <a  class="btn btn-success" [routerLink]="['/gestion-employes/ModifierEmployes/'+employe.idemp]">
+                                        Modifier
+                                    </a>
+                                  </td>
+                                  <td>
+                                    <a  class="btn btn-danger" (click)="supprimerEmploye(employe)">
+                                        supprimer
+                                    </a>
+                                  </td>
+                                  
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                    </div>
+                    </div>
+              
+             <div>
+              <h4>{{message}} </h4>
+            </div>
+            </div>
+          </form>
+        <div class="modal-footer justify-content-center">
+          <button mat-raised-button type="button" class="btn btn-info btn-round" data-dismiss="modal" (click)="makePDF();">Valider</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- bon_de_lunetterie -->
+<div class="modal fade" id="bon_de_lunetterie" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-notice ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="myModalLabel"> Bon_De_Lunetterie</h5>
+        <button mat-button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+          <i class="material-icons">close</i>
+        </button>
+      </div>
+      <form class="form-horizontal">
+          <input type="hidden" class="form-control" >
+          <div class="form-group row card-header">
+            
+            <div class="col-md-12 form-group">
+              <label>Numero_Carnet</label>
+            <input type="text" class="form-control" id="numero_carnet" [(ngModel)]="bon.numero_carnet" name="numero_carnet">
+          </div>
+            <div class="col-md-8 form-group">
+                <label>Code de Fournisseur</label>
+              <input type="text" class="form-control" id="code_fournisseur" [(ngModel)]="bon.code_fournisseur" name="code_fournisseur">
+            </div>
+            <div class="col-md-4 form-group">
+                <label>Numero Saisie Facture</label>
+              <input type="text" class="form-control" id="n_saisie_facture" [(ngModel)]="bon.n_saisie_facture" name="n_saisie_facture">
+            </div>
+            <div class="col-md-12 form-group">
+                <label>Prénom de/des Malade(s)</label>
+              <input type="text" class="form-control" id="prenom_malade" [(ngModel)]="bon.prenom_malade" name="prenom_malade">
+            </div>
+            <div class="col-md-4 form-group">
+                <label>Date de Demande</label>
+              <input type="date" class="form-control" id="date_demande" [(ngModel)]="bon.date_demande" name="date_demande">
+            </div>
+            <div class="col-md-4 form-group">
+                <label>Date de Reception de Facture</label>
+              <input type="date" class="form-control" id="date_reception_facture" [(ngModel)]="bon.date_reception_facture" name="date_reception_facture">
+            </div>
+            
+            <div class="card-body table-full-width">
+              <div class="table-responsive">
+                  <table class="table table-hover">
+                      <thead class="text-primary">
+                          <tr>
+                            <th>Date Prestation</th>
+                            <th >Code Prestation</th>
+                            <th >Nature Prestation</th>
+                            <th >Montant</th>
+                            <th >T.P.S</th>
+                          </tr>
+                      </thead>
+                      <tbody >
+                            <tr *ngFor=" let bon of bons">
+                                <td>{{bon.code_remb_64800}}</td>
+                                <td >{{bon.code_p_non_Remb_64801}}</td>
+                                <td >{{bon.quantite}}</td>
+                                <td >{{bon.designation}}</td>
+                                <td >{{bon.prix_unitaire}}</td>
+                                <td>{{bon.total}}</td>
+                                <td >{{employe.lieu_nais}}</td>
+                                <td >{{employe.telephone}}</td>
+                                <td >{{employe.date_recrutement}}</td>
+                                <td >{{employe.matricule}}</td>
+                                <td>{{employe.reference}}</td>
+                                <td >{{employe.numero_carnet}}</td>
+                                <td >{{employe.situation_familial}}</td>
+                                <td >{{employe.solde}}</td>
+                                <td >{{employe.cumul_charge}}</td>
+                                <td >{{employe.niveau_salarial}}</td>
+                                <td>
+                                  <a  class="btn btn-success" [routerLink]="['/gestion-employes/ModifierEmployes/'+employe.idemp]">
+                                      Modifier
+                                  </a>
+                                </td>
+                                <td>
+                                  <a  class="btn btn-danger" (click)="supprimerEmploye(employe)">
+                                      supprimer
+                                  </a>
+                                </td>
+                                
+                          </tr>
+                         
+                      </tbody>
+                  </table>
+                  </div>
+                  </div>
+            
+           <div>
+            <h4>{{message}} </h4>
+          </div>
+          </div>
+        </form>
+      <div class="modal-footer justify-content-center">
+        <button mat-raised-button type="button" class="btn btn-info btn-round" data-dismiss="modal">Valider</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Bon_Lettre_de_Garantie -->
+<div class="modal fade" id="bon_lettre_de_garantie" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-notice">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalLabel">INSTITUTION DE PREVOYANCE MALADIE DU PERSONNEL DE LA POSTE</h5>
+          <button mat-button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <i class="material-icons">close</i>
+          </button>
+        </div>
+        <form class="form-horizontal">
+            <input type="hidden" class="form-control" >
+            <div class="form-group row card-header">
+              <h3 >Dakar,le  </h3>
+              
+              <div class="col-md-12 form-group">
+                <label>Nom du Patient</label>
+                <input type="text" class="form-control" id="Nom du Patient" [(ngModel)]="bon.nom_du_patient" name="nom">
+              </div>
+              <div class="col-md-12 form-group">
+                <label>Numero_Carnet_De_Sante</label>
+                <input type="text" class="form-control" id="numero_carnet_de_sante" [(ngModel)]="bon.numero_carnet_de_sante" name="numero_carnet_de_sante">
+              </div>
+              <div class="col-md-12 form-group">
+                <label>Service</label>
+                <input type="text" class="form-control" id="service" [(ngModel)]="bon.service" name="service">
+              </div>
+              <div class="col-md-12 form-group">
+                <label>Mle de Solde</label>
+                <input type="text" class="form-control" id="solde" [(ngModel)]="bon.solde" name="solde">
+              </div>
+              <div class="col-md-12 form-group">
+                <label>Numero_De_Reference</label>
+                <input type="text" class="form-control" id="numero_de_reference" [(ngModel)]="bon.numero_de_reference" name="numero_de_reference">
+
+              </div>
+              <div class="col-md-12 form-group">
+                <p>Monsieur,</p>
+                <p>Nous avons l'honnneur de vous signaler que les frais de versement de</p>
+                <p>............................................................................................................................................................................................
+                </p>
+                <p>............................................................................................................................................................................................
+                </p>
+                <p>............................................................................................................................................................................................
+                  sont garantis par notre institution. </p>
+                <p>Nous vous serons reconnaissants de bien vouloir parvenir votre facture dans un délai 
+                  n'excédant pas deux(02) mois aprés la date d'établissement de la présente lettre.
+                  Veuillez agréer,Monsieur, l'expression de notre considération distinguée.
+
+                </p>
+              </div>
+              <!-- <div class="text-center">
+                <button type="submit" class="btn btn-primary" (click)="EmployeNow()">Enregistrer</button>
+             </div> -->
+             <div>
+              <h4>{{message}} </h4>
+            </div>
+            </div>
+          </form>
+        <div class="modal-footer justify-content-center">
+          <button mat-raised-button type="button" class="btn btn-info btn-round" data-dismiss="modal">Sounds good!</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,141 @@
+<form class="form-horizontal">
+    <input type="hidden" class="form-control" >
+    <div class="form-group row card-header">
+      
+      <div class="col-md-12 form-group">
+        <label>Numero_Carnet</label>
+      <input type="text" class="form-control" id="numero_carnet" [(ngModel)]="bon.numero_carnet" name="numero_carnet">
+    </div>
+      <div class="col-md-8 form-group">
+          <label>Code de Fournisseur</label>
+        <input type="text" class="form-control" id="code_fournisseur" [(ngModel)]="bon.code_fournisseur" name="code_fournisseur">
+      </div>
+      <div class="col-md-4 form-group">
+          <label>Numero Saisie Facture</label>
+        <input type="text" class="form-control" id="n_saisie_facture" [(ngModel)]="bon.n_saisie_facture" name="n_saisie_facture">
+      </div>
+      <div class="col-md-12 form-group">
+          <label>Prénom de/des Malade(s)</label>
+        <input type="text" class="form-control" id="prenom_malade" [(ngModel)]="bon.prenom_malade" name="prenom_malade">
+      </div>
+      <div class="col-md-4 form-group">
+          <label>Date de Demande</label>
+        <input type="date" class="form-control" id="date_demande" [(ngModel)]="bon.date_demande" name="date_demande">
+      </div>
+      <div class="col-md-4 form-group">
+          <label>Date de Reception de Facture</label>
+        <input type="date" class="form-control" id="date_reception_facture" [(ngModel)]="bon.date_reception_facture" name="date_reception_facture">
+      </div>
+        
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <div class="page-categories">
+            <h4 class="title text-center">Choisir Conjoints ou Enfants</h4>
+            <br />
+            <ul class="nav nav-pills nav-pills-warning nav-pills-icons justify-content-center" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#link7" role="tablist">
+                  <i class="material-icons">person</i> Conjoints
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#link8" role="tablist">
+                  <i class="material-icons">person</i> Enfants
+                </a>
+              </li>
+             
+            </ul>
+            <div class="tab-content tab-space tab-subcategories">
+              <div class="tab-pane" id="link7">
+                <div class="card">
+                  <div class="card-header">
+                    <h4 class="card-title">Description about product</h4>
+                    <p class="card-category">
+                      More information here
+                    </p>
+                  </div>
+                  <div class="card-body">
+                    Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits.
+                    <br>
+                    <br> Dramatically visualize customer directed convergence without revolutionary ROI.
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane active" id="link8">
+                <div class="card">
+                  <div class="card-header">
+                    <h4 class="card-title">Location of the product</h4>
+                    <p class="card-category">
+                      More information here
+                    </p>
+                  </div>
+                  <div class="card-body">
+                    Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas.
+                    <br>
+                    <br> Dramatically maintain clicks-and-mortar solutions without functional solutions.
+                  </div>
+                </div>
+              </div>
+             
+           
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body table-full-width">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="text-primary">
+                    <tr>
+                      <th>Date Prestation</th>
+                      <th >Code Prestation</th>
+                      <th >Nature Prestation</th>
+                      <th >Montant</th>
+                      <th >T.P.S</th>
+                    </tr>
+                </thead>
+                <tbody >
+                      <tr *ngFor=" let bon of bons">
+                          <td>{{bon.code_remb_64800}}</td>
+                          <td >{{bon.code_p_non_Remb_64801}}</td>
+                          <td >{{bon.quantite}}</td>
+                          <td >{{bon.designation}}</td>
+                          <td >{{bon.prix_unitaire}}</td>
+                          <td>{{bon.total}}</td>
+                          <td >{{employe.lieu_nais}}</td>
+                          <td >{{employe.telephone}}</td>
+                          <td >{{employe.date_recrutement}}</td>
+                          <td >{{employe.matricule}}</td>
+                          <td>{{employe.reference}}</td>
+                          <td >{{employe.numero_carnet}}</td>
+                          <td >{{employe.situation_familial}}</td>
+                          <td >{{employe.solde}}</td>
+                          <td >{{employe.cumul_charge}}</td>
+                          <td >{{employe.niveau_salarial}}</td>
+                          <td>
+                            <a  class="btn btn-success" [routerLink]="['/gestion-employes/ModifierEmployes/'+employe.idemp]">
+                                Modifier
+                            </a>
+                          </td>
+                          <td>
+                            <a  class="btn btn-danger" (click)="supprimerEmploye(employe)">
+                                supprimer
+                            </a>
+                          </td>
+                          
+                    </tr>
+                   
+                </tbody>
+            </table>
+            </div>
+            </div>
+      
+     <div>
+      <h4>{{message}} </h4>
+    </div>
+    </div>
+  </form>
+  <div class="modal-footer justify-content-center">
+    <button mat-raised-button type="button" class="btn btn-info btn-round" data-dismiss="modal" (click)="makePDF();">Valider</button>
+  </div>

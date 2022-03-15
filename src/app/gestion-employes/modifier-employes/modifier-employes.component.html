@@ -1,0 +1,100 @@
+<mat-toolbar color="primary">
+  <div fxhide.gt-xs>
+    <!-- <button mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button> -->
+  </div>
+</mat-toolbar>
+
+<form class="form-horizontal">
+  <input type="hidden" class="form-control" >
+  <div class="form-group row card-header">
+    <h1 class="text-center">Modification de l'employe </h1>
+    
+    <div class="col-md-6 form-group">
+      <mat-form-field class="example-full-width">
+        <input readonly matInput type="text" class="form-control" id="idemp" placeholder="IdEmp" [(ngModel)]="currentemploye.idemp" name="idemp" >
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 form-group">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" class="form-control" id="nom" placeholder="Nom" [(ngModel)]="currentemploye.nom" name="nom">
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 form-group">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" class="form-control" id="prenom" placeholder="Prenom" [(ngModel)]="currentemploye.prenom" name="prenom">
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 form-group">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" class="form-control" id="sexe" placeholder="Sexe" [(ngModel)]="currentemploye.sexe" name="sexe">
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 form-group">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" class="form-control" id="adresse_domicile" placeholder="Adresse Domicile" [(ngModel)]="currentemploye.adresse_domicile" name="adresse_domicile">
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 form-group">
+      <mat-form-field>
+        <input matInput  id="date_nais" placeholder="Date Naissance"  [(ngModel)]="currentemploye.date_nais" name="date_nais">
+        <!-- <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2 startView="year"></mat-datepicker> -->
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 form-group">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" class="form-control" id="lieu_nais" placeholder="Lieu de Naissance" [(ngModel)]="currentemploye.lieu_nais" name="lieu_nais">
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 form-group">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" class="form-control" id="telephone" placeholder="Telephone" [(ngModel)]="currentemploye.telephone" name="telephone">
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 form-group">
+      <mat-form-field >
+        <input matInput  id="date_recrutement" placeholder="Date Recrutement" [(ngModel)]="currentemploye.date_recrutement" name="date_recrutement">
+        <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker> -->
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 form-group">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" class="form-control" id="situation_familial" placeholder="Situation Matrimonial" [(ngModel)]="currentemploye.situation_familial" name="situation_familial">
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 form-group">
+      <mat-form-field>
+        <mat-select placeholder="Service" name="service"  [(ngModel)]="servi">
+          <mat-option *ngFor="let serv of service" [value]="serv.idService" >
+            {{ serv.type_service }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>    
+    </div>
+    <div class="col-md-6 form-group">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" class="form-control" id="matricule" placeholder="Matricule" [(ngModel)]="currentemploye.matricule" name="matricule" >
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 form-group">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" class="form-control" id="reference" placeholder="Reference" [(ngModel)]="currentemploye.reference" name="reference">
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 form-group">
+      <mat-form-field>
+        <mat-select placeholder="Categorie" name="categorie" [(ngModel)]="cate">
+          <mat-option *ngFor="let cat of categorie" [value]="cat.code_categorie">
+            {{ cat.libelle }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>   
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary" (click)="updateEmploye()">Modifier</button>
+   </div>
+  </div>
+</form>

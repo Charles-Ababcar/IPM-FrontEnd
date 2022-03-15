@@ -1,0 +1,100 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card ">
+            <div class="card-header card-header-info card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">search</i>
+              </div>
+              <h4 class="card-title">Rechercher Employe</h4>
+            </div>
+            <div class="card-body ">
+                <form class="navbar-form">
+                    <span class="bmd-form-group">
+                      <div class="input-group no-border">
+                        <input type="text" name="matricule" class="form-control" placeholder="Matricule" id="matricule" [(ngModel)]="matricule">
+                        <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon" >
+                          <i class="material-icons">search</i>
+                          <div class="ripple-container"></div>
+                        </button>
+                      </div>
+                    </span>
+
+                    <!-- <span class="bmd-form-group">
+                        <div class="input-group no-border">
+                          <input type="text" value="" class="form-control" placeholder="Reference">
+                          <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                            <i class="material-icons">search</i>
+                            <div class="ripple-container"></div>
+                          </button>
+                        </div>
+                      </span> -->
+                  </form>
+            </div>
+            
+            <!--[disabled]="!searchForm.form.invalid"-->
+            <div class="card-footer" > 
+              <button mat-raised-button  type="submit" (click)="findByMatricule()" 
+               class="btn btn-fill btn-success" >Rechercher</button>
+            </div>
+           
+            <div class="card">
+              <div class="card-body" *ngIf ="message">
+                  <br>
+                  <div class="row">
+                     <h4 >l'agent {{message.matricule}} existe !!!</h4><br>
+                      <table class="table table-hover" >
+                        
+                        <thead class="text-primary">
+                         
+                            <th >Nom</th>
+                            <th >Prenom</th>
+                            <th >Sexe</th>
+                            <th >Matricule</th>
+                            <th >Reference</th>
+                         
+                        </thead>
+                        <tbody>
+                          <tr >
+                            <td >{{message.nom}}</td>
+                            <td >{{message.prenom}}</td>
+                            <td >{{message.sexe}}</td>
+                            <td >{{message.matricule}}</td>
+                            <td>{{message.reference}}</td>
+                            
+                      </tr>
+                         </tbody> 
+                        </table>
+
+                        <div class="dropup">
+                          <button mat-raised-button href="#pablo"  class="btn btn-primary btn-round  pull-left" data-toggle="dropdown">Types de  Bons
+                              <b class="caret"></b>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-left">
+                              <li class="dropdown-header">Différents Bon</li>
+                              <li>
+                                  <a [routerLink]="['/gestion-bons/Ajouterbons/+employe.idemp']" data-toggle="modal" data-target="#bon_pharmacie">Bon Pharmacie</a>
+                              </li>
+                              <li>
+                                  <a [routerLink]="['/gestion-bons/Ajouterbons/+employe.idemp']" data-toggle="modal" data-target="#bon_consultation">Bon Consultation</a>
+                              </li>
+                              <li>
+                                  <a [routerLink]="['/gestion-bons/Ajouterbons/+employe.idemp']" data-toggle="modal" data-target="#bon_de_lunetterie"> Bon De Lunetterie </a>
+                              </li>
+                              <li class="divider"></li>
+                              <li>
+                                  <a [routerLink]="['/gestion-bons/Ajouterbons/+employe.idemp']" data-toggle="modal" data-target="#bon_lettre_de_garantie">Bon Lettre</a>
+                              </li>
+                          </ul>
+                      </div>
+                      </div>    
+               </div>
+              
+           </div> 
+          </div>
+        </div>
+        </div>
+        </div>
+        </div>
+  

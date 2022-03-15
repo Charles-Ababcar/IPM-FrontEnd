@@ -1,0 +1,146 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-icon card-header-rose">
+                        <div class="card-icon">
+                          <i class="material-icons">assignment</i>
+                        </div>
+                        <h4 class="card-title "> Liste des Employes de la poste</h4>
+                    </div>
+                        <div class="card-body table-full-width">
+                            <div class="material-datatable">
+        
+                                <table id="datatable" class="table table-striped" cellspacing="0" width="100%" style="width:100%" class="table table-hover">
+                                    <thead class="text-primary">
+                                        <tr>
+                                       
+                                         <th >{{ dataTable.headerRow[0] }}</th>
+                                          <th >{{ dataTable.headerRow[1] }}</th>
+                                          <th >{{ dataTable.headerRow[2] }}</th>
+                                          <!-- <th >{{ dataTable.headerRow[3] }}</th> -->
+                                          <th >{{ dataTable.headerRow[4] }}</th>
+                                          <th >{{ dataTable.headerRow[5] }}</th>
+                                          <th >{{ dataTable.headerRow[6] }}</th>
+                                          <th >{{ dataTable.headerRow[7] }}</th>
+                                          <th >{{ dataTable.headerRow[8] }}</th>
+                                          <!-- <th >{{ dataTable.headerRow[8] }}</th> -->
+                                          <th class="disabled-sorting text-right">{{ dataTable.headerRow[9] }}</th>
+                                         
+                                        </tr>
+                                    </thead>
+                                    <tbody >
+                                          <tr *ngFor=" let employe of employes">
+                                            <td >{{employe.idemp}}</td>
+                                              <td >{{employe.nom}}</td>
+                                              <td >{{employe.prenom}}</td>
+                                              <!-- <td >{{employe.sexe}}</td> -->
+                                              <td >{{employe.matricule}}</td>
+                                              <td>{{employe.reference}}</td>
+                                              <td >{{employe.ipm_service?.type_service}}</td>
+                                              <td >{{employe.ipm_categorie?.libelle}}</td>
+                                              <td><a href="#"><img class="card-img-top img-responsive"
+                                                src = "{{employe.picByte}}"
+                                                style = "height :100px;width:fil-content" 
+                                               alt=""></a></td>
+                                              <!-- <td><a href="#"><img class="card-img-top-responsive"
+                                            src ="{{'/ImagesEmployes/'+employe.idemp}}"
+                                        style="height: 200px;width: fil-content"alt=""></a></td>  -->
+                                              <td class="td-actions">
+                                                <button mat-raised-button type="button" class="btn btn-info ">
+                                                    <i class="fa fa-eye" data-toggle="modal" data-target="#myModal"
+                                                        (click)="getEmployeById(employe)">
+                                                    </i>
+                                            
+                                                </button>
+                                                <button mat-raised-button type="button" class="btn btn-primary ">
+                                                    <i class="material-icons" [routerLink]="['/gestion-employes/ModifierEmployes/'+employe.idemp]">edit</i>
+                                                </button>
+                                                <button mat-raised-button type="button" class="btn btn-danger ">
+                                                    <i class="fa fa-trash-o" (click)="supprimerEmploye(employe)"></i>
+                                                </button>
+                                            
+                                                <button mat-raised-button type="button" class="btn btn-success">
+                                                    <i class="material-icons" [routerLink]="['/gestion-employes/carnetEmploye/'+employe.idemp]">person</i>
+                                                </button>
+                                               
+                                              </td>
+                                             
+                                        </tr>
+                                       
+                                    </tbody>
+                                    <button mat-raised-button type="button" class="btn btn-primary ">
+                                        <i class="bi bi-download" (click)="upload()">Telecharger</i>
+                                    </button>
+                                </table>
+                            </div>
+                         </div>
+                    
+                    <!--modal pour afficher le detail d'un employe-->
+                    <div class="ecommerce">
+                        <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-ecom">
+                                <div class="modal-content ">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Information de l'employe</h4>
+                                        <button mat-button type="button" class="close" data-dismiss="modal"
+                                            aria-hidden="true">
+                                            <i class="material-icons">clear</i>
+                                        </button>
+    
+                                    </div>
+                                    <div class="modal-body ">
+                                        <div class="card ">
+                                            <div class="card-body ">
+                                                <label class="col-md-6">Numero Carnet</label>
+                                                <label class="col-md-6">{{currentemploye.idemp}}</label>
+                                                <label class="col-md-6">Nom</label>
+                                                <label class="col-md-6">{{currentemploye.nom}}</label>
+                                                <label class="col-md-6">Prenom</label>
+                                                <label class="col-md-6">{{currentemploye.prenom}}</label>
+                                                <label class="col-md-6">Sexe</label>
+                                                <label class="col-md-6">{{currentemploye.sexe}}</label>
+                                                <label class="col-md-6">Adresse</label>
+                                                <label class="col-md-6">{{currentemploye.adresse_domicile}}</label>
+                                                <label class="col-md-6">Date Naissance</label>
+                                                <label class="col-md-6">{{currentemploye.date_nais}}</label>
+                                                <label class="col-md-6">Lieu Naissance</label>
+                                                <label class="col-md-6">{{currentemploye.lieu_nais}}</label>
+                                                <label class="col-md-6">Telephone</label>
+                                                <label class="col-md-6">{{currentemploye.telephone}}</label>
+                                                <label class="col-md-6">Situation Matrimonial</label>
+                                                <label class="col-md-6">{{currentemploye.situation_familial}}</label>
+                                                <label class="col-md-6">Matricule</label>
+                                                <label class="col-md-6">{{currentemploye.matricule}}</label>
+                                                <label class="col-md-6">Reference</label>
+                                                <label class="col-md-6">{{currentemploye.reference}}</label>
+                                                <label class="col-md-6">Date Recrutement</label>
+                                                <label class="col-md-6">{{currentemploye.date_recrutement}}</label>
+                                                <label class="col-md-6">Service</label>
+                                                <label class="col-md-6">{{currentemploye.ipm_service?.type_service}}</label>
+                                                <label class="col-md-6">Categorie</label>
+                                                <label class="col-md-6">{{currentemploye.ipm_categorie?.libelle}}</label>
+                                                <label class="col-md-6">Numero Carnet</label>
+                                                <label class="col-md-6">{{currentemploye.numero_carnet}}</label>
+    
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button mat-raised-button type="submit" class="btn btn-fill btn-fill"
+                                                data-dismiss="modal" (click)="close">Retour</button>
+                                        </div>
+    
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!--fin modal-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>   

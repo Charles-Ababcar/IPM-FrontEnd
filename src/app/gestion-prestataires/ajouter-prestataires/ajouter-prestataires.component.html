@@ -1,0 +1,99 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-icon card-header-rose">
+            <div class="card-icon">
+              <i class="material-icons">perm_identity</i>
+            </div>
+            <h4 class="card-title">Prestatatire -
+              <small class="category">Complete your profile</small>
+            </h4>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="this.pres_service.dataForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Nom Prestatire</label>
+                    <input type="text" class="form-control" formControlName="nom_prestataire" id=" nom_prestataire">
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Adresse</label>
+                    <input type="text" class="form-control" formControlName="adresse_prestataire" id="adresse_prestataire">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Email</label>
+                    <input type="email" class="form-control" formControlName="email" id="email">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Raison Social</label>
+                    <input type="text" class="form-control" formControlName="raison_social" id="raison_social">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Téléphone</label>
+                    <input type="text" class="form-control"formControlName="telephone" id="telephone">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Fax</label>
+                    <input type="text" class="form-control" formControlName="fax" id="fax">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Code Categorie Prestatatire</label>
+                    <input type="text" class="form-control" formControlName="code_categorie_pretataire" id="code_categorie_pretataire">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Nature</label>
+                    <input type="text" class="form-control"formControlName="nature" id="nature">
+                  </div>
+                </div>
+                
+              </div>
+              <!-- <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>About Me</label>
+                    <div class="form-group">
+                      <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                      <textarea class="form-control" rows="5"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+              <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="ajouterPres()"> <span class="btn-label">
+                <i class="material-icons">check</i>
+            </span>Enregistrer</button>
+      -->        
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+            
+           <!-- <button mat-raised-button class="btn btn-success">
+               <span class="btn-label">
+                   <i class="material-icons">check</i>
+               </span>Enregistrer</button>
+         -->

@@ -1,0 +1,191 @@
+<mat-toolbar color="primary">
+  <div fxhide.gt-xs>
+    <button mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+<form class="form-horizontal">
+  <input type="hidden" class="form-control" >
+  <div class="form-group row card-header">
+    <h2 class="text-center">Ajout des Employes de la poste </h2>  
+    <div class="col-md-6 form-group" [formGroup]="FormControlEmpployes">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" class="form-control" id="nom" placeholder="Nom" [(ngModel)]="employe.nom" formControlName="nom" >
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 form-group" [formGroup]="FormControlEmpployes">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" class="form-control" id="prenom" placeholder="Prenom" [(ngModel)]="employe.prenom" formControlName="prenom">
+      </mat-form-field>
+    </div>
+    <div> 
+  </div>  
+    <div class="col-md-6 form-group" [formGroup]="FormControlEmpployes">
+      <mat-form-field appearance="fill">
+        <mat-label>Sexe</mat-label>
+       <!--<input matInput type="text" class="form-control" id="sexe" placeholder="Sexe" [(ngModel)]="employe.sexe" formControlName="sexe"> --> 
+        <select matNativeControl required [formControl]="selectFormControl">
+          <mat-option  type="text" class="form-control" id="sexe" placeholder="Sexe" [(ngModel)]="employe.sexe" formControlName="sexe">--Choissir le sexe ci-dessous--</mat-option>
+          <option value="masculin">Masculin</option>
+          <option value="feminin">Feminin</option>
+          </select>
+          <mat-error *ngIf="selectFormControl.hasError('required')">
+            This field is required
+          </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 form-group"[formGroup]="FormControlEmpployes">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" class="form-control" id="adresse_domicile" placeholder="Adresse Domicile" [(ngModel)]="employe.adresse_domicile" formControlName="adresse_domicile">
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 form-group"[formGroup]="FormControlEmpployes">
+      <mat-form-field>
+      <input matInput type="date" max="2001-01-31" min="1900-01-01" id="date_nais" placeholder="Date Naissance" [(ngModel)]="employe.date_nais" formControlName="date_nais">      
+      </mat-form-field>
+  </div>
+    <div class="col-md-6 form-group"[formGroup]="FormControlEmpployes">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text"  class="form-control" id="lieu_nais" placeholder="Lieu de Naissance" [(ngModel)]="employe.lieu_nais" formControlName="lieu_nais">
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 form-group"[formGroup]="FormControlEmpployes">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" class="form-control" id="telephone" placeholder="" mask="(00) 000-00-00" [(ngModel)]="employe.telephone" formControlName="telephone">
+        <small>Telephone: XX-XXX-XX-XX</small>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 form-group"[formGroup]="FormControlEmpployes">
+      <mat-form-field >
+        <input matInput type="date" id="date_recrutement" placeholder="Date Recrutement"  [(ngModel)]="employe.date_recrutement" formControlName="date_recrutement">
+        <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker> -->
+      </mat-form-field>
+    </div>
+    <!--<div class="col-md-6 form-group" [formGroup]="FormControlEmpployes">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" class="form-control" id="situation_familial" placeholder="Situation Matrimonial" [(ngModel)]="employe.situation_familial"formControlName="situation_familial">
+      </mat-form-field>
+    </div>-->
+    <mat-form-field appearance="fill">
+      <mat-label>Situation Matrimoniale</mat-label>
+     <!--<input matInput type="text" class="form-control" id="sexe" placeholder="Sexe" [(ngModel)]="employe.sexe" formControlName="sexe"> --> 
+      <select matNativeControl required [formControl]="selectFormControl">
+        <mat-option  type="text" class="form-control" id="situation_familial" placeholder="Situation Familial" [(ngModel)]="employe.situation_familial" formControlName="situation_familial">--Choissir le sexe ci-dessous--</mat-option>
+        <option value="celibataire">Célibataire</option>
+        <option value="marie">Marié(e)</option>
+        <option value="divorcé">Divorcé(e)</option>
+        <option value="veuf ">Veuf(ve)</option>
+        </select>
+        <mat-error *ngIf="selectFormControl.hasError('required')">
+          This field is required
+        </mat-error>
+    </mat-form-field>
+    <div class="col-md-6 form-group">
+      <mat-form-field>
+        <mat-select placeholder="Type Service" name="entity"  [(ngModel)]="enti" (selectionChange)="selectService()">
+            <mat-option *ngFor="let ent of entity" [value]="ent.idEntity">
+              {{ ent.nom_entity }}
+            </mat-option>         
+        </mat-select>
+      </mat-form-field>    
+    </div>
+   <!-- <div class="col-md-6 form-group">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" class="form-control" id="matricule" placeholder="Matricule" [(ngModel)]="employe.matricule" name="matricule">
+
+      </mat-form-field> 
+
+    </div> -->
+    <div class="col-md-6 form-group"[formGroup]="FormControlEmpployes">
+      <mat-form-field class="example-full-width">
+       <input matInput type="text" class="form-control"  id="matricule"  [(ngModel)]="employe.matricule" placeholder="Matricule *" formControlName="matricule" 
+        (keypress)="keyPressAlphaNumericWithCharacters($event)">
+      <mat-error *ngIf="FormControlEmpployes.controls['matricule'].hasError('required')">
+        le matricule doit etre <strong>Obligatoire</strong>
+      </mat-error>
+      <mat-error *ngIf="FormControlEmpployes.controls['matricule'].hasError('minlength')">
+        le matricule doit composer au moins  <strong>7 caractères</strong>
+      </mat-error>
+      <mat-error *ngIf="FormControlEmpployes.controls['matricule'].hasError('maxlength')">
+        le matricule ne doit pas dépasser <strong>7 caractères</strong>
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 form-group">
+      <mat-form-field>
+        <mat-select placeholder="Service" name="service"  [(ngModel)]="servi">
+          <mat-option *ngFor="let serv of service" [value]="serv.idService" >
+            {{ serv.type_service }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>    
+    </div>
+    
+    <div class="col-md-6 form-group"[formGroup]="FormControlEmpployes">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" class="form-control" id="reference" placeholder="Reference" [(ngModel)]="employe.reference" formControlName="reference">
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 form-group">
+      <mat-form-field>
+        <mat-select placeholder="Categorie" name="categorie" [(ngModel)]="cate">
+          <mat-option *ngFor="let cat of categorie" [value]="cat.code_categorie">
+            {{ cat.libelle }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>   
+    </div>
+    
+  
+  </div>
+</form>
+
+
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 mr-auto ml-auto">
+        <!--      Wizard container        -->
+        <div class="wizard-container">
+          <div class="card card-wizard" data-color="rose" id="wizardProfile">
+              <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->             
+              <div class="card-body">
+                <div class="tab-content">
+                  <div class="tab-pane active" id="about">
+                    <div class="row justify-content-center">
+                      <div class="col-sm-4">
+                        <div class="picture-container">
+                          <div class="picture">
+                            <div class="form-group" [(ngModel)]="employe.picByte"></div>
+                            <img [src]="imgURL" height="100" width="100" *ngIf="imgURL"/>
+                            <input type="file" (change)="onFileChanged($event)">
+                          </div>
+                          </div>
+                                 <h6 class="description" style="border: 45px;">Choisir Image</h6>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                  </div>
+                </div>   
+          </div>
+        <!-- wizard container -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="text-center">
+  <button type="submit" class="btn btn-success" (click)="EmployeNow()">
+    <span class="btn-label">
+    <i class="material-icons">check</i>
+</span>Enregistrer</button>
+</div>
+<div>
+<h4>{{message}} </h4>
+</div>
+

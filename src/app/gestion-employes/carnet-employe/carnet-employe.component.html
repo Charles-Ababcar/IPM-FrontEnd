@@ -1,0 +1,363 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header card-header-icon card-header-info">
+      <div class="card-icon"><img class="card-img-top img-responsive"
+        src = "{{currentemploye.picByte}}"
+        style = "height :100px;width:fil-content"
+       alt=""></div>
+      <h4 class="card-title">Carnet employe : {{currentemploye.prenom}}  {{currentemploye.nom}} </h4>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Company : La Poste</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating" >Prenom:{{currentemploye.prenom}}</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Nom : {{currentemploye.nom}}</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Sexe:{{currentemploye.sexe}}</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Adresse:{{currentemploye.adresse_domicile}}</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Date Naissance:{{currentemploye.date_nais}}</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Lieu de Naissance:{{currentemploye.lieu_nais}}</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Telephone:{{currentemploye.telephone}}</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Situation Familial:{{currentemploye.situation_familial}}</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Matricule:{{currentemploye.matricule}}</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Reference{{currentemploye.reference}}</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Date Recrutement:{{currentemploye.date_recrutement}}</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Service:{{currentemploye.ipm_service?.type_service}}</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Categorie:{{currentemploye.ipm_categorie?.libelle}}</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">{{currentemploye.idemp}}</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- <button mat-raised-button type="submit" class="btn btn-green pull-right" class="material-icons" [routerLink]="['/gestion-bons/Ajouterbons/']">Nouveau bon</button> -->
+        <!-- <div class="dropup">
+          <button mat-raised-button href="#pablo"  class="btn btn-primary btn-round  pull-left" data-toggle="dropdown">Types de  Bons
+              <b class="caret"></b>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-left">
+              <li class="dropdown-header">Différents Bon</li>
+              <li>
+                  <a [routerLink]="['/gestion-bons/Ajouterbons/+employe.idemp']" data-toggle="modal" data-target="#bon_pharmacie">Bon Pharmacie</a>
+              </li>
+              <li>
+                  <a [routerLink]="['/gestion-bons/Ajouterbons/+employe.idemp']" data-toggle="modal" data-target="#bon_consultation">Bon Consultation</a>
+              </li>
+              <li>
+                  <a [routerLink]="['/gestion-bons/Ajouterbons/+employe.idemp']" data-toggle="modal" data-target="#bon_de_lunetterie"> Bon De Lunetterie </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                  <a [routerLink]="['/gestion-bons/Ajouterbons/+employe.idemp']" data-toggle="modal" data-target="#bon_lettre_de_garantie">Bon Lettre</a>
+              </li>
+          </ul>
+      </div> -->
+        <div class="clearfix"></div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="card-title">Carnet Familial</h4>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-4">
+          <ul role="tablist" class="nav nav-pills nav-pills-rose flex-column">
+            <li class="nav-item"><a data-toggle="tab" href="#link4" role="tablist" class="nav-link active"> Conjoint(e)
+              </a>
+            </li>
+            <li class="nav-item"><a data-toggle="tab" href="#link5" role="tablist" class="nav-link"> Enfant(s) </a></li>
+          </ul>
+        </div>
+        <div class="col-md-8">
+          <div class="tab-content">
+            <div id="link4" class="tab-pane active">
+              <div class="col-md-12">
+                <div class="">
+                  
+                  <div class="">
+                    <div class="table-responsive">
+                      <button mat-raised-button type="button" data-toggle="modal" data-target="#conjoints" class="mat-raised-button mat-button-base btn btn-info"><span
+                        class="mat-button-wrapper"><i class="material-icons">person</i></span></button>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <!-- <th class="text-center">Numero</th> -->
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>Date_Nais</th>
+                            <th>Lieu_Nais</th>
+                            <th>Téléphone</th>
+                            <th class="text-right">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="ng-star-inserted" *ngFor=" let conjoint of conjoints">
+                            <!--<td class="text-center">{{conjoint.idconj}}</td>-->
+                            <td>{{conjoint.nom_conjoint}}</td>
+                            <td>{{conjoint.prenom_conjoint}}</td>
+                            <td>{{conjoint.date_naiss_conj}}</td>
+                            <td>{{conjoint.lieu_naiss_conj}}</td>
+                            <td>{{conjoint.telephone}}</td>
+                            <td class="td-actions text-right"><button mat-raised-button="button" type="button"
+                                class="mat-raised-button mat-button-base btn btn-success"><span
+                                  class="mat-button-wrapper"><i class="material-icons" data-toggle="modal" data-target="#conjoints">edit</i></span>
+                                <div matripple="" class="mat-ripple mat-button-ripple"></div>
+                                <div class="mat-button-focus-overlay"></div>
+                             </button>   <!--<button mat-raised-button="" type="button"
+                                class="mat-raised-button mat-button-base btn btn-danger"><span
+                                  class="mat-button-wrapper"><i class="material-icons">close</i></span>
+                                <div matripple="" class="mat-ripple mat-button-ripple"></div>
+                                <div class="mat-button-focus-overlay"></div>
+                              </button> --></td> 
+                          </tr>
+                        
+                          <!--Ajouter Nouveau Conjoints-->
+                          <div class="modal fade" id="conjoints" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-notice ">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="myModalLabel">Ajout de  Conjoint(s)</h5>
+                                  <button mat-button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    <i class="material-icons">close</i>
+                                  </button>
+                                </div>
+                                <form class="form-horizontal">
+                                    <input type="hidden" class="form-control" >
+                                    <div class="form-group row card-header">
+                            
+                                      <div class="col-md-4 form-group">
+                                          <label>Nom Conjoint</label>
+                                        <input type="text" class="form-control" id="nom_conjoint"  [(ngModel)]="conjoint.nom_conjoint" name="nom_conjoint">
+                                      </div>
+                                      <div class="col-md-4 form-group">
+                                          <label>Prenom Conjoint</label>
+                                        <input type="text" class="form-control" id="prenom_conjoint" [(ngModel)]="conjoint.prenom_conjoint" name="prenom_conjoint">
+                                      </div>
+                                      <div class="col-md-4 form-group">
+                                        <label>Date Naissance</label>
+                                      <input type="date" class="form-control" id="date_naiss_conj" [(ngModel)]="conjoint.date_naiss_conj" name="date_naiss_conj">
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                      <label>Lieu Naissance</label>
+                                    <input type="text" class="form-control" id="lieu_naiss_conj" [(ngModel)]="conjoint.lieu_naiss_conj" name="lieu_naiss_conj">
+                                  </div>
+                                <div class="col-md-4 form-group">
+                                  <label>Téléphone</label>
+                                <input type="text" class="form-control" id="telephone" [(ngModel)]="conjoint.telephone" name="telephone">
+                              </div>
+                              <div class="row">
+                                <button mat-flat-button color="primary"> Choisir Photo</button>
+                                  <input type="file" class="btn-success" class="form-control"  name="image" (change)="getFile($event)">
+                              </div>
+                              <div class="row">
+                                <label>Joindre Certificat de mariage</label>
+                           
+                                  <br>
+                                  <div class="form-group">
+                                  <input type="file" (change)="onFileChanged($event)">
+                                  <img [src]="imgURL" height=" 100" width="100" *ngIf="imgURL">
+                                  </div>
+                                  <br>
+                              </div>
+            
+                                     <div>
+                                      <h4>{{message}} </h4>
+                                    </div>
+                                    </div>
+                                  </form>
+                                <div class="modal-footer justify-content-center">
+                                  <button mat-raised-button type="button" class="btn btn-info btn-round" (click)="ConjointNow()">
+                                    <span class="btn-label">
+                                      <i class="material-icons">check</i>
+                                  </span>Enregistrer</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="link5" class="tab-pane active"> <div class="col-md-12">
+              <div class="">
+                
+                <div class="">
+                  <div class="table-responsive">
+                    <button mat-raised-button type="button" data-toggle="modal" data-target="#enfants"
+                    class="mat-raised-button mat-button-base btn btn-info"><span
+                     class="mat-button-wrapper"><i class="material-icons">person</i></span></button>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <!-- <th class="text-center">#</th> -->
+                          <th>Nom </th>
+                          <th>Prenom </th>
+                          <th>Date_Nais</th>
+                          <th>Lieu_Nais</th>
+                          <th>Sexe</th>
+                          <th class="text-right">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="ng-star-inserted"  *ngFor=" let enfant of enfants">
+                         <!-- <td class="text-center">1</td>-->
+                          <td>{{enfant.nom_enfant}}</td>
+                          <td>{{enfant.prenom_enfant}}</td>
+                          <td>{{enfant.date_nais_enfant}}</td>
+                          <td>{{enfant.lieu_nais_enfant}}</td>
+                          <td>{{enfant.adresse}}</td>
+                          <td>{{enfant.sexe_enfant}}</td>
+                          <td class="td-actions text-right"><button mat-raised-button="" type="button"
+                              class="mat-raised-button mat-button-base btn btn-success"><span
+                                class="mat-button-wrapper"><i class="material-icons">edit</i></span>
+                              <div matripple="" class="mat-ripple mat-button-ripple"></div>
+                              <div class="mat-button-focus-overlay"></div>
+                        </button>     <!-- <button mat-raised-button="" type="button"
+                              class="mat-raised-button mat-button-base btn btn-danger"><span
+                                class="mat-button-wrapper"><i class="material-icons">close</i></span>
+                              <div matripple="" class="mat-ripple mat-button-ripple"></div>
+                              <div class="mat-button-focus-overlay"></div>
+                            </button> --></td> 
+                        </tr>
+                       
+                        <!--Ajouter de Nouvel Enfant-->
+                        <div class="modal fade" id="enfants" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-notice ">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="myModalLabel">Ajout d'Enfant(s)</h5>
+                                <button mat-button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                  <i class="material-icons">close</i>
+                                </button>
+                              </div>
+                              <form class="form-horizontal">
+                                  <input type="hidden" class="form-control" >
+                                  <div class="form-group row card-header">
+                          
+                                    <div class="col-md-6 form-group">
+                                        <label>Nom Enfant</label>
+                                      <input type="text" class="form-control" id="nom_enfant" [(ngModel)]="enfant.nom_enfant"name="nom_enfant">
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label>Prenom Enfant</label>
+                                      <input type="text" class="form-control" id="prenom_enfant"[(ngModel)]="enfant.prenom_enfant" name="prenom_enfant">
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                      <label>Date Naissance </label>
+                                    <input type="date" class="form-control" id="date_nais_enfant"[(ngModel)]="enfant.date_nais_enfant" name="date_nais_enfant">
+                                  </div>
+                                  <div class="col-md-4 form-group">
+                                    <label>Lieu Naissance </label>
+                                  <input type="text" class="form-control" id="lieu_nais_enfant"[(ngModel)]="enfant.lieu_nais_enfant" name="lieu_nais_enfant">
+                                </div>
+                                <div class="col-md-4 form-group">
+                                  <label>Adresse</label>
+                                <input type="text" class="form-control" id="adresse"[(ngModel)]="enfant.adresse" name="adresse">
+                              </div>
+                              <div class="col-md-4 form-group">
+                                <label>Sexe</label>
+                              <input type="text" class="form-control" id="sexe_enfant"[(ngModel)]="enfant.sexe_enfant" name="sexe_enfant">
+                            </div>
+                            <div class="row">
+                              <button mat-flat-button color="primary"> Choisir Photo</button>
+                                <input type="file" class="btn-success"
+                                 class="form-control"  name="image" (change)="getFile($event)">
+                                
+                              
+                            </div>
+                            <!-- <div class="row">
+                              <label>Joindre acte de Naissance</label>
+                                <input type="file" class="form-control"  name="image" (change)="getFile($event)" >
+                            </div> -->
+                                   <div>
+                                    <h4>{{message}} </h4>
+                                  </div>
+                                  </div>
+                                </form>
+                              <div class="modal-footer justify-content-center">
+                                <button mat-raised-button type="button" class="btn btn-info btn-round"(click)="EnfantNow()" >Enregistrer</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

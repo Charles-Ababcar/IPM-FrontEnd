@@ -1,0 +1,53 @@
+<form class="form-horizontal">
+    <input type="hidden" class="form-control" >
+    <div class="form-group row card-header">
+      <h3 >Dakar,le  </h3>
+      
+      <div class="col-md-12 form-group">
+        <label>Nom du Patient</label>
+        <input type="text" class="form-control" id="Nom du Patient" [(ngModel)]="bon.nom_du_patient" name="nom">
+      </div>
+      <div class="col-md-12 form-group">
+        <label>Numero_Carnet_De_Sante</label>
+        <input type="text" class="form-control" id="numero_carnet_de_sante" [(ngModel)]="bon.numero_carnet_de_sante" name="numero_carnet_de_sante">
+      </div>
+      <div class="col-md-12 form-group">
+        <label>Service</label>
+        <input type="text" class="form-control" id="service" [(ngModel)]="bon.service" name="service">
+      </div>
+      <div class="col-md-12 form-group">
+        <label>Mle de Solde</label>
+        <input type="text" class="form-control" id="solde" [(ngModel)]="bon.solde" name="solde">
+      </div>
+      <div class="col-md-12 form-group">
+        <label>Numero_De_Reference</label>
+        <input type="text" class="form-control" id="numero_de_reference" [(ngModel)]="bon.numero_de_reference" name="numero_de_reference">
+
+      </div>
+      <div class="col-md-12 form-group">
+        <p>Monsieur,</p>
+        <p>Nous avons l'honnneur de vous signaler que les frais de versement de</p>
+        <p>............................................................................................................................................................................................
+        </p>
+        <p>............................................................................................................................................................................................
+        </p>
+        <p>............................................................................................................................................................................................
+          sont garantis par notre institution. </p>
+        <p>Nous vous serons reconnaissants de bien vouloir parvenir votre facture dans un délai 
+          n'excédant pas deux(02) mois aprés la date d'établissement de la présente lettre.
+          Veuillez agréer,Monsieur, l'expression de notre considération distinguée.
+
+        </p>
+      </div>
+      <!-- <div class="text-center">
+        <button type="submit" class="btn btn-primary" (click)="EmployeNow()">Enregistrer</button>
+     </div> -->
+     <div>
+      <h4>{{message}} </h4>
+    </div>
+    </div>
+  </form>
+
+  <div class="modal-footer justify-content-center">
+    <button mat-raised-button type="button" class="btn btn-info btn-round" data-dismiss="modal">Enregistrer</button>
+  </div>

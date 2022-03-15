@@ -1,0 +1,62 @@
+<div class="col-md-6">
+    <div class="card">
+        <form>
+          <div class="card-header card-header-rose card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">mail_outline</i>
+            </div>
+            <h4 class="card-title">Prise en Compte des prestations</h4>
+          </div>
+            <div class="card-body">
+              <mat-form-field class="example-full-width">
+                 <input type="number" matInput  id="code_prestation" placeholder="Code Prestation*"
+                  [(ngModel)]="prestation.code_prestation" 
+                  name="code_prestation">
+                 
+               </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput id="libelle" placeholder="Libeelle*" [(ngModel)]="prestation.libelle"
+                   name="libelle">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                  <input type="number" matInput id="taux_agrees" placeholder="Taux Agrees *"
+                  [(ngModel)]="prestation.taux_agrees" name="taux_agrees">
+                 
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="number" matInput id="taux_non_agrees" [(ngModel)]="prestation.taux_non_agrees" 
+                  placeholder="Taux Non Agrees *" name="taux_non_agrees">
+                 
+                </mat-form-field>
+                <div class="col-md-6 form-group">
+                  <mat-form-field>
+                    <mat-select placeholder="Prestataire" name="ipm_prestataire" [(ngModel)]="pres">
+                      <mat-option *ngFor="let pre of prestataire" [value]="pre.code_prestataire">
+                        {{ pre.nom_prestataire}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>   
+                </div>
+                <div class="col-md-6 form-group">
+                  <mat-form-field>
+                    <mat-select placeholder="TypePrestataire" name="ipm_type_prestataire" [(ngModel)]="pres"
+                     (selectionChange)="selectTypePres()">
+                      <mat-option *ngFor="let pre of typeP" [value]="pre.id_type_prestataire">
+                        {{ pre.nom_type_prestaire}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>   
+                </div>
+                <!-- <div class="category form-category">* Required fields</div> -->
+                <div class="card-footer text-right">
+                  <!-- <mat-checkbox class="example-margin mb-0">Subscribe to newsletter</mat-checkbox> -->
+                  
+                  <button mat-raised-button type="submit" class="btn btn-success" (click)="onRegister()">Enregistrer</button>
+                </div>
+              </div>
+        </form>
+    </div>
+
+</div>
+
